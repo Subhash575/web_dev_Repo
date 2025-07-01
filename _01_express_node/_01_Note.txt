@@ -1,0 +1,56 @@
+##Some "imp" pt:-
+# A port is a numerical identifier used to defferentiate multipe services or applications
+running on single computer or network.
+We can create multipe index1, index2.js etc file and run the program on different
+port for ex: 3001, 3002, 3003 etc simultaneously and access all this using
+localhost:3001, localhost:3002  etc in this way were name same but port different.
+
+app.listen(3000);
+This code infinitly listen specify port so that it exceute the request come to that
+port. Therefore it is important to listen infinitly so that any request can not be leave
+unserve.(This what will happen in google, facebook when you try to find some thing)
+If their port is not infinitly listening it will miss the request.
+
+#localhost is another domain name very similar to google.com
+#If you "ping localhost" it will return the IP of your machine.
+It looks like you're pinging ::1, which is the IPv6 loopback address
+(equivalent to 127.0.0.1 in IPv4).
+Here we get IP in IPv6 format which is -> ::1
+
+##If you ever want to access your own machine from your own machine
+We can either write localhost/IP(127.0.0.1) in "postman"
+ex: http://localhost:3000/
+ex: directly we can write-> localhost:3000/
+ex: for we can also use underline IP:-   127.0.0.1:3000  or http://127.0.0.1:3000
+
+after 3000 we use endpoint '/'
+which will send "Hello World"
+
+const express = require("express");
+const app = express();
+
+//route handlers
+app.get("/", function (req, res) {
+  res.send("Hello World");
+});
+
+app.listen(3000); //which port
+
+Remember above code need to running so that postman give the result of above code.
+
+#Some more points:-
+There are some default port:-
+which is :-
+HTTP:- 80
+HTTPS:- 443
+SSH:- 22
+etc.
+If you deploy your project on different port then user need to specify port on your
+website ex: https://game.com:3000 here we deploy the project on the AWS on port 3000
+bcs of that user need to specify the port number if you deploy the project on the port
+443 then user not need to mentain the port number bcs it will bydefault go on the 443
+port.
+Therefore it is recommanded to use the default port so that user experience become good.
+
+## cli for local machine, express is use for creating HTTP server and you can deploy
+it on the AWS so that everyone can use it.

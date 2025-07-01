@@ -1,0 +1,48 @@
+##myNotes:-
+#dependencies-> Things which you need during your code running.
+#Dev dependencies which you need only during development.
+->Both dependencies some what same at high level.
+
+-----------------------------------------------------------------------------
+
+Node.js provides you some packages out of the box. Some common ones include
+1.fs - Filesystem
+2.path - Path related functions
+3.http - Create HTTP Servers (we’ll discuss this tomorrow)
+
+-> File system/fs is the "internal package" provide by the node.js.
+->When we run "npm install chalk" we get the dependencies locally.
+->That dependencies will added in the package.json in the dependencies section.
+for ex:-
+"dependencies": {
+    "chalk": "^5.4.1"
+  }
+
+->Bcs dependencies is added in the "dependencies section of project.json" it will easy to 
+->keep track of all your dependencies bcs all dependencies will added in this section.
+##Another important pt:-
+->Node_modules is the heavy folder bcs when you install any library it will depend on
+some other library therefore some other library dependencies is also install in the
+node Node_modules in these way Node_modules will become very heavy also remember each
+dependencies/library has it own package.json were you can see the dependencies.
+In this way nested dependencies make the Node_modules heavy
+
+->##--imp---->
+Remember yo don't push Node_modules on the Github it is the bad pratices instead
+you push the other file like package.json, package-lock.json and index.js.
+bcs if you run the command:- npm install it will automatically scan package.json and
+install dependencies on your directory.
+
+If you give this 3 file for ex:- package.json, package-lock.json and index.js bcs
+package.json automatically add the dependencies on there directory when they run
+the command:- npm install
+In this way your friend work on the same project and check it.
+
+--->
+##Some other point:-
+"ava": "^3.15.0",
+Above is the dependencies/library with specific version in the future if it will get
+new feature what we need to do it we simply need to increase the version
+for ex:- "ava": "^3.15.1", in the dependencies section and run the 
+command:- npm install  
+Above command will automatically added the new version of this library.

@@ -1,0 +1,32 @@
+##All are important stuff to know ##:-
+# For running js in the terminal we use the command:- node index.js.
+
+#On the server/terminal some what same.
+#Node.js is javascript runtime work on V8 engine.
+Node.js is introduce so that we can run javascript not on the frontend as well as backend.
+
+#All Node.js code is called backend code which we are going to write.
+Backend code has some extra access. Backend code can access file on your system
+->"fs library" not present/access on frontend/Browser
+->You cannot give file system access inside the Browser because of security concern.
+for ex:- If google chrome developer have access over my file they can read my private
+data.
+
+#document variable /DOM make sense on the Browser but doesn't make sense on the Node.js 
+bcs when we write code on Node.js It running on my "machine/server" and there is no UI 
+associated with it. Ex:- index.js
+Node.js--> core engine is V8 interperet your javascript.
+#Every Browser has it own engine like V8. V8 is most popular engine.
+
+#Like "Node.js", "Bun" is a JavaScript runtime that allows you to execute JavaScript code on the server side.
+->Bun is competing with Node.js. Bun is writing in language called ZIG is low-level language like Rust.
+->Bun is faster than Node.js bcs of many reason
+-->Most good project depend on Node.js.
+
+#ECMASCRIPT:- It is the javascript standard. 
+->Node.js, Bun and google chrome/safari etc follow the ECMASCRIPT standard
+->internet Explorer not follow this standard. Therefore internet Explorer is rearlly
+use today and it is the Microsoft Product.
+
+
+

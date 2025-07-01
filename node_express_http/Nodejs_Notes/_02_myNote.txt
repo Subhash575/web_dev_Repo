@@ -1,0 +1,53 @@
+##Some more notes##:-
+(imp):--->
+#Every project we need to intialize for this we need to run some command first before
+start writing the code.
+#Here we initialize the Node.js project:-
+command:- npm init -y
+This command will create the "package.json" file
+->Every language have "package.json" type of file.
+
+-------(#important for understanding)------
+#In the package.json there is "script"
+you can able to edit the script in package.json
+for ex:- "start" : "node index.js"
+if you write command:- node run start
+->It will execute the "node index.js" in the script.
+->In this way we can edit the script and we need to give them discriptive/meaningful name.
+-------------------------------------------
+
+#"keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+
+-->This all four are the "meta data".
+Not worry about unless deploy package on npm registery./deploying an external package
+to the npm registery.
+
+-----(#important also)----------------
+
+"dependencies": {
+    "chalk": "^5.4.1"
+  }
+
+->This dependencies section is important as script section.
+
+npm:- Node Package Manager
+->It manage the (dependencies/library/external-packages) these all three are same
+->In npm package refer as external-package/external-dependencies.
+#Every language have it own package Manager.
+
+##dependencies:- It is the reusable code that other smart developer have return it.
+->Here we bringing it to our codebase/Node.js codebase
+
+##For installing external dependencies command:- npm install libraryName
+ex:- npm install chalk
+
+#-> npm registery:- A place were people register there external packages.
+
+#Whenever you install any external library you can see it some were on npm registery on
+the internet and read about it. sit name is: npm.js
+-----------------------------------------------------------
+
+

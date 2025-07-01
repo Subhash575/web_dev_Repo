@@ -1,0 +1,60 @@
+##myNotes:-
+--------------------------------------------------------------------------------
+These are packages written and maintained by other people. You just use their work 
+in your project.
+For example
+1. Express
+2. chalk
+
+You can read more about them on their npm page - 
+https://www.npmjs.com/package/chalk
+Sometimes they are open source as well -
+https://github.com/chalk/chalk
+
+----------------------------------------------------------------------------------
+Semantic Versioning Format
+Every external package is updated incrementally. A specific version looks something like follows -
+"chalk": "^5.3.0"
+
+##The format is as follows - MAJOR.MINOR.PATCH
+.MAJOR -  Major version changes indicate significant updates or breaking changes. 
+.MINOR -  Minor version changes signify the addition of new features or improvements in a backward-compatible manner.
+.PATCH - Patch version changes include backward-compatible bug fixes or minor improvements that address issues without adding new features or causing breaking changes.
+
+##Usage in package.json
+“chalk”: “^5.3.0” - npm will install any version that is compatible with 5.3.0 but less than 6.0.0. This includes versions like 5.3.1, 5.4.0, 5.5.0, etc.
+“chalk”: “5.3.0” - Will install the exact version
+"chalk": "latest" - Will install the latest version
+
+#therefore this "^" sign play the important role here. Because it will help in installing
+the latest version in our directory.
+#Remember it will not install the 6.0.0 version.
+
+All you need to do that is delete the Node_modules and install it again
+by running the command: npm install 
+
+----------------------------------------------------------------------------------
+The symbol ^ is called a circumflex/Caret 
+
+-----------------------------------------------------------------------------------
+
+##imp:->
+##package-lock.json##------------------------------------------------------------
+“chalk”: “^5.3.0” This Caret sign in the version of library create a conflict bcs of
+different version install in different computer. Therefore working with team will become
+difficult.
+Bcs of this reason package-lock.json come in picture.
+It will pin the exact version.
+The package-lock.json records the exact versions of all dependencies and their dependencies (sub-dependencies) that are installed at the time when npm install was run.
+Consistency: By locking down these versions, package-lock.json ensures that every time someone installs dependencies (e.g., by running npm install), they get the exact same versions of packages. This prevents discrepancies that can arise from different versions being installed in different environments.
+
+->lock file will generated automatically when we run the command: npm install
+
+###important###:--------------------------------
+Always push package-lock.json file on the github.
+you can see package-lock.json on the github in the below github id.
+
+CMS
+https://github.com/code100x/cms/blob/main/package-lock.json
+Dailycode
+https://github.com/code100x/daily-code/blob/main/yarn.lock

@@ -1,0 +1,21 @@
+<!-- Counter using the DOM:- -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning</title>
+  </head>
+  <body>
+    <button onclick="countFunc()" id="btn">counter 0</button>
+
+    <script>
+      function countFunc() {
+        const countContent = document.getElementById("btn").innerHTML;
+        const currCount = countContent.split(" ")[1];
+        const newCount = parseInt(currCount) + 1;
+        document.getElementById("btn").innerHTML = "counter " + newCount;
+      }
+    </script>
+  </body>
+</html>

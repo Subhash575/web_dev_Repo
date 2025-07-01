@@ -1,0 +1,115 @@
+(imp):-
+#What is use of ports
+lets say you have different project:-
+projects.100xdevs.com
+apps.100xdevs.com
+100xdevs.com
+
+If you want to deploy above three project one thing is that you can buy different IP/
+rent different machine for different project which is costly.
+
+Instead what you can do is you can use different port for different websites and use it.
+And all different website have the same IP.
+How you can do that is you can search project by mentioning the port number
+ex: projects.100xdevs.com:3000
+    apps.100xdevs.com:3001
+    100xdevs.com:3002
+
+If you also not have the domain name then you can use IP:PortNO for visiting different
+website.
+ex:- 12.34.56.78:3000 in this way you can do that.
+
+This is what port is use for.
+
+#Some extra point:-
+When we deploy a website we deploy on port 443.
+In real world everywebsite is work on the same port which is portNO:443
+If your website is not on this port then it is not a good practise.
+->When you running your website locally then you can run on any port.
+-----------------------------------------------------------------------------------
+#Methods
+HTTP methods are used to specify the "type of action" that the client wants to perform on a resource on the server.
+->Methods are the good way to structure your HTTP Server.
+Similar to CRUD (Create Read Update Delete) operation in website.
+ex:- toDo, facebook etc
+In HTTP there are methods which do similar things:-
+Create => POST Request
+Read => GET Request
+Update => PUT Request
+Delete => DELETE Request
+
+You don't NEED to use all the methods, but you always should. You can do everything you want with a GET or POST  method, but it is usually advisable to use them right.
+
+### Common methods which we normally use in HTTP.       
+1. GET -  Retrieve data from a server. (Get my TODOS)
+2. POST - Submit data to be processed by a server. (Create a TODO)
+3. PUT - Update or create a resource on the server (Update my todo)
+4. DELETE - Remove a resource from the server. (Delete my todo)
+
+->If you want to send POST request to a server and PUT request to a server there is
+different ways one of the way is postman.
+->Postman it is almost like a browser but it let you twick everything in HttpRequest.
+->Postman is helpful for sending the request.
+->Why we need Postman It is use for testing purpose if you create your own HTTP server then you need Postman for testing purpose. So that you can directly send request from the postman(GET, POST, PUT, DELETE).
+
+----------------------------------------------------------------------------------
+
+->Let say you on Linkedin and you scrolling at each scrolling you bydefault ask the
+server to send/further load the Linkedin page(As I scrolling I sending more HttpRequest and let say I ask the server give me the next three post.) how the data is return to me it can be return generally in the form of HTML, JSON.
+After getting data we can easily render it on the website.
+
+# Response
+The response represents what the server returns you `in response` to the request.
+It could be
+1. Plaintext data - Not used as often
+2. HTML - If it is a website
+3. JSON Data - If you want to fetch some data (user details, list of todos…)
+
+### JSON
+**JSON** stands for **JavaScript Object Notation**. It is a lightweight, text-based format used for data interchange
+
+```jsx
+{
+  "name": "John Doe",
+  "age": 30,
+  "isEmployed": true,
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown"
+  },
+  "phoneNumbers": ["123-456-7890", "987-654-3210"]
+}
+```
+
+----------------------------------------------------------------------------------
+###Status codes###
+HTTP status codes are three-digit numbers returned by a server to indicate the outcome of a client’s request. They provide information about the status of the request and the server's response.
+
+## 200 series (Success)
+- **200 OK**: The request was successful, and the server returned the requested resource.
+- **204 No Content**: The request was successful, but there is no content to send in the response
+
+### 300 series (Redirection)
+- **301 Moved Permanently**: The requested resource has been moved to a new URL permanently. The client should use the new URL provided in the response.
+- **304 Not Modified**: The resource has not been modified since the last request. The client can use the cached version.
+
+### 400 series (Client Error)
+- **400 Bad Request**: The server could not understand the request due to invalid syntax.
+- **401 Unauthorized**: The request requires user authentication. The client must provide credentials.
+- **403 Forbidden**: The server understood the request but refuses to authorize it.
+- **404 Not Found**: The requested resource could not be found on the server.
+
+### 500 series (Server Error)
+- **500 Internal Server Error**: The server encountered an unexpected condition that prevented it from fulfilling the request.
+- **502 Bad Gateway**: The server received an invalid response from an upstream server while acting as a gateway or proxy.
+
+Error 4XX : Your Fault
+Error 5XX : Our Fault(Server)
+
+->Error should not specify in the body or response it will be specify by 
+status code
+ex:- It is wrong bcs we specify it in the body here
+{
+    error: true,
+    message: "Wrong endpoint"
+}

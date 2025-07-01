@@ -1,0 +1,58 @@
+<!-- counter using React logic Here we create "State" and "Component" manually-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static & Component</title>
+  </head>
+
+  <body>
+    <div id="btnParent"></div>
+    <script>
+      // Sequence How to declare the element first we define the "State" variable then
+      // we define the "component" and then "buttonPress()" logic.
+      // React under the hood make sure that state update will be shown on the browser
+      // and website.
+
+      //State variable
+      const State = {
+        count: 0,
+        color: "red",
+      };
+
+      //Logic write by Developer
+      function buttonPress() {
+        State.count++;
+        State.color = Math.random() > 0.5 ? "red" : "blue";
+        //In React "reRender" logic not need to write it can be write/provide by the React
+        //Here we explicity call the "reRender" logic when state is change.
+        //But in case of React we don't need to do so.
+        reRenderFunc();
+      }
+
+      //Render Function
+      function reRenderFunc() {
+        document.getElementById("btnParent").innerHTML = "";
+        const component = buttonComponent(State.count, State.color);
+        document.getElementById("btnParent").appendChild(component);
+      }
+
+      //Button component
+      function buttonComponent(count, color) {
+        const btnEl = document.createElement("button");
+        btnEl.innerHTML = `counter ${count}`;
+        btnEl.setAttribute("onclick", "buttonPress()");
+        btnEl.setAttribute("style", `color: ${color}`);
+        return btnEl;
+      }
+
+      reRenderFunc();
+
+      /*
+      ##Math.random()
+      Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):
+      */
+    </script>
+  </body>
+</html>

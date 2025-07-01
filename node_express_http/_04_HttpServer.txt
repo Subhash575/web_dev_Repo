@@ -1,0 +1,119 @@
+Back in the day, HTTP was introduced so machines all around the world could talk to
+ each other.
+This would be useful for things like
+1. Talking via im (instant messenger)
+2. Emails
+3. Accessing an `algorithm` that is only available on a `very big machine` at `Stanford` 
+lets say
+
+#You can refer below document to create a HTTP Server from the scratch.
+https://datatracker.ietf.org/doc/html/rfc2616 
+This is the reference link here all things is documented.
+In Trading company their is assignment to create a HTTP server from the scratch in C.
+
+
+#In Chrome developer tool: network tab were we have Preview and response 
+In over case when we ask for google.com it "response" with some html and in "Preview"
+it will show that html o/p.
+
+### Request response model
+The request-response model is a fundamental communication pattern.
+It describes how data is exchanged between a `client` and a `server` or between 
+two systems.
+### Are there other ways for you to communicate b/w machines?
+
+Yes, there are various other protocols that exist that let machines communicate with
+each other.
+1. Websockets
+2. WebRTC
+3. GRPC
+…
+
+##Domain name/IP
+#1 Domain names
+The way to reach a sever is through its `Domain name` . For example
+1. google.com
+2. app.100xdevs.com
+3. x.com
+
+#2 IPs
+Every domain that you see, actually has an underlying IP that it `resolves` to.
+You can check the ip by running the `ping` command.
+
+ex 1:-
+command: ping app.100xdevs.com
+Pinging app.100xdevs.com [139.59.52.14] with 32 bytes of data:
+
+ex2:-
+command: ping projects.100xdevs.com
+Pinging projects.100xdevs.com [139.59.52.14] with 32 bytes of data:
+
+(imp)
+#leaning here in ex1 and ex2 we can see that both have same IP which means both hosted
+on the same machine.
+
+(imp)
+To see your website up or down and your internet working or not for these
+we can use the "ping command" above maintaince
+If command give/resolve the ip then website and internet perfectly working.
+If your website show error then there will be problem on the server side not your.
+
+#For Deploying project:-
+1. rent a server(aws) => 22.2.22.55(IP)
+2. Buy a domain(godaddy) => imSubhash.com
+and point imSubhash.com to server(IP) mentain above
+
+
+## Ports
+
+In networking, **ports** are `logical` endpoints used by protocols to identify `specific processes`  running on a computer or server. They help direct network traffic to the correct application or service on a system.
+See figure on notion docs.
+
+One Server can running multiple project using different ports/Or same port valid(80, 443)
+3000
+3001
+3002
+80
+443
+
+->If your website start from "https" it will bydefault go to portNo 443.
+->If your website start form "http" it will bydefault go to portNo 80.
+
+(imp to understand)
+Q. so if we have a server which hosts 2 websites for 2 different persons then port number will be same or not?
+Ans--> In the case of hosting multiple websites on the same server for different users, the port number for both websites can be the same—typically port 80 for HTTP or port 443 for HTTPS. However, the websites will be distinguished using their domain names.
+
+This method is called virtual hosting. Here's how it works:
+
+Virtual Hosting
+There are two common types of virtual hosting used in web servers:
+
+Name-Based Virtual Hosting (most common)
+IP-Based Virtual Hosting
+1. Name-Based Virtual Hosting (Shared IP)
+In name-based virtual hosting, multiple websites share the same IP address and port (typically port 80 or 443). The server uses the domain name from the client's request (via the Host header in the HTTP request) to serve the correct website.
+
+For example, a server can host:
+
+www.person1-website.com on port 80
+www.person2-website.com on port 80
+Even though they share the same IP address and port, when a request comes in for www.person1-website.com, the server recognizes the domain and delivers that website’s content. Similarly, for www.person2-website.com, it serves a different set of content.
+
+This is very efficient because the server doesn’t need separate IP addresses or ports for each website.
+
+2. IP-Based Virtual Hosting (Multiple IPs or Ports)
+In IP-based virtual hosting, each website has a unique IP address. Alternatively, each website can be hosted on different ports, but this is less common and typically not user-friendly because users would have to specify the port number in the URL (e.g., http://www.person1-website.com:8080).
+
+However, it’s more common to assign each website a unique IP address if needed:
+
+www.person1-website.com on IP 192.168.1.10 (Port 80)
+www.person2-website.com on IP 192.168.1.11 (Port 80)
+Which Is Used More?
+Name-based virtual hosting is most common because it allows hosting many websites on the same server, sharing the same IP address and port.
+IP-based virtual hosting may be used for websites requiring SSL certificates (though modern SSL certificates like SAN or wildcard certificates can cover multiple domains on the same IP).
+Summary
+Port numbers can be the same for multiple websites (usually port 80 for HTTP or port 443 for HTTPS).
+The web server uses domain names (through name-based virtual hosting) to distinguish between websites.
+This allows a server to host multiple websites on the same port without any conflict.
+
+
