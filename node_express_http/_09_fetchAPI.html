@@ -1,0 +1,40 @@
+<!-- More example of the fetch API -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch API</title>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"></script>
+</head>
+<body>
+    <h1>Facebook Posts</h1>
+    <button onclick="loadPost()">load all posts</button>
+    <div id="posts"></div>
+    <script>
+        async function loadPost(){
+            const res = await axios("https://jsonplaceholder.typicode.com/posts");
+            // It will give the array of object
+            const arr = res.data;
+    
+            // res.data is a JavaScript object/array, not a string.
+            // If you try to put it directly into the DOM using:
+
+            // document.getElementById("posts").textContent = res.data;
+
+            // It will show [object Object], [object Object]
+            // Because textContent expects a string, and 
+            // JavaScript doesn’t know how to  convert the object into 
+            // readable text on its own.
+            // solution is JSON.stringify(res.data)
+            //This converts your JavaScript object/array into
+            // a string format — like how JSON looks.
+            
+            for(let i = 0; i < arr.length; i++){
+                document.getElementById("posts").innerHTML += "<div>"+ arr[i].title + "<div>"
+            }
+        }
+    </script>
+    
+</body>
+</html>

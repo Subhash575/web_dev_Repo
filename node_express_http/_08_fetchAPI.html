@@ -1,9 +1,14 @@
+<!-- Fetch API:- We need fetch API to create the dynamic website like linkdin
+bcs when we scroll new post is added in the website this will done with the help
+of fetch API Bcs Fetch API help us to get the information  using method like get, post etc after getting info we put that info in our website.
+It is use to send the background request -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch-API</title>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"></script>
 </head>
 <body>
 <!--
@@ -26,10 +31,36 @@ request. You can see this on the network tab
         // Main goal of fetch is to send the http request in the background for ex:- When
         // we scroll the linkedin we get the new post which will we done by the fetch
         // method.
-        
+
+        // Way 1:- 
+        //  Promise version using .then
+
+        // function getPost(){
+        //     console.log("Before sending the request");
+        //     const response = fetch("https://jsonplaceholder.typicode.com/posts/1").then(
+        //     function(response){
+        //      const data = response.json().then(function(data){
+        //         console.log(data);
+        //         console.log("Request is processed");
+        //         document.getElementById("post").textContent = JSON.stringify(data, null, 2);
+        //      })   
+
+        //     }
+        //  )   
+
+        // }
+
+
+        // Way-2:-
         // Using async and await.
+
         // async function  getPost() {
         //     console.log("Before sending request");
+        //     // const response = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        //     //     method: "GET"
+        //     // });
+        //     /* Here we can also able to add second parameter. If yo don't add second parameter it will bydefault get method. Below is the code for that
+        //     */
         //     const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
         //     const data = await response.json();
         //     console.log(data);
@@ -38,25 +69,41 @@ request. You can see this on the network tab
         //     //here we use DOM
         //     // document.getElementById("post").innerHTML = JSON.stringify(data, null, 2);
         //     //For better formatting we use the below code.
-        //     document.getElementById("post").textContent = JSON.stringify(data, null, 2);
+        //     document.getElementById("post").textContent = JSON.stringify(data);
         // }
 
-        // Promise versionk using .then
-        function getPost(){
-            console.log("Before sending the request");
-            const response = fetch("https://jsonplaceholder.typicode.com/posts/1").then(
-            function(response){
-             const data = response.json().then(function(data){
-                console.log(data);
-                console.log("Request is processed");
-                document.getElementById("post").textContent = JSON.stringify(data, null, 2);
-             })   
 
-            }
-         )   
+        // Way-3 :-
+        // Using axios(external library):- 
+        // Promise based HTTP client for the browser and node.js
+        // It is also return a promise.
+        // It is similar to fetch and It will automatically convert the data into
+        // the json fromat therefore no need to use response.json()
+        // For Nodejs we use:- const axios = require("axios"); 
+        // But for html and css we use the cdn link as you can see in the head tag.
 
+        async function getPost() {
+            console.log("Before sending request");
+            const res = await axios("https://jsonplaceholder.typicode.com/posts/1");
+            // In the above jsonplacehoder... website we get multiple post by using 1 and
+            // 2 and 3 etc or by removing /1 and leaving only /posts which will show
+            // all the posts.
+            console.log(res);
+            console.log("Request has been processed");
+            // document.getElementById("post").textContent = JSON.stringify(res.data);
+            document.getElementById("post").textContent = JSON.stringify(res.data.title);
+          
+            // remember their is no res.body in the axios.
+            // instead we have res.data which contain the actual json data which we need.
+            // imp pt:- In axios actual data/information is present on the "data" key
+            // therefore we use res.data in case of axios.
         }
         getPost();
+
+        // remember response have many things like response.data, response.headers,
+        // response.statusCode.
+        // we generally use axios.get(URL) or axios()
+
     </script>
     
 </body>
