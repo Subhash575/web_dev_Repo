@@ -1,0 +1,17 @@
+{
+  "name": "03_middleware_assg",
+  "version": "1.0.0",
+  "main": "_01_assg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon _01_assg.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
