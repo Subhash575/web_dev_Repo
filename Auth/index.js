@@ -16,6 +16,7 @@ function generateToken(){
     return token;
 }
 
+
 app.use(express.json());
 // In case of express/any backend  one point to remember is that always send response back
 // otherwise it will create the problems because website not go anywhere further.
