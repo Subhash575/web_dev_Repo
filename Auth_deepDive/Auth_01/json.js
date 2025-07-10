@@ -99,3 +99,14 @@ app.listen(3000, ()=>{
     console.log("server start at port 3000");
 })
 
+/*
+##Some note:-
+You can use same token for two website as well . Let say we hit the backend of [harkirat.classax.co.in](http://harkirat.classax.co.in) and it give us the token during signin. We use the same token in the [app.100xdevs.com](http://app.100xdevs.com) . In this way we login or logout of the different website simultaneously.
+##remember token is usually store inside the browser.
+
+In our jwt/token approach when we signin server/Backend automatically send us the token. Which we explicity store in the browser and send the token in every subsequent request.
+
+In case of cookie approach  the cookie is automically save by the browser  and it send with every subsequent request. cookie is send in the header
+
+Remember cookie is browser specific concept you can see in the above image.
+*/
