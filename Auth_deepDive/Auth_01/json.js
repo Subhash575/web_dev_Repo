@@ -110,3 +110,29 @@ In case of cookie approach  the cookie is automically save by the browser  and i
 
 Remember cookie is browser specific concept you can see in the above image.
 */
+
+/*
+What is a JWT Secret?
+In JWT (JSON Web Token) authentication, the JWT secret is a private key (a string) used to sign and later verify the token.
+
+A JWT looks like this:
+xxxxx.yyyyy.zzzzz
+It has 3 parts:
+Header (algorithm, token type)
+Payload (user data like ID, role)
+Signature 
+
+What Does the JWT Secret Do?
+The JWT secret is used to create and verify the signature part of the token.
+
+This ensures:
+The token was not tampered with
+The token came from your server (trusted source)
+
+Important Points:
+Keep the secret private (never expose it to frontend/browser).
+Store it in a .env file like:
+JWT_SECRET=mySuperSecretKey
+
+Use a strong, unpredictable string — e.g., generated using a secure tool or password manager.
+*/
