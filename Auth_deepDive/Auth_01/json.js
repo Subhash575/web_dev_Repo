@@ -135,4 +135,10 @@ Store it in a .env file like:
 JWT_SECRET=mySuperSecretKey
 
 Use a strong, unpredictable string — e.g., generated using a secure tool or password manager.
+-----------------------------------------------------------------------------------------
+In encryption you require the key to encrypt the data  and also require the key to decrypt the data
+
+by this we get the orginal data which is encrypted.
+
+In case of jwt we not encrypt instead we encode the string which anyone can convert back. Here decoding is done by anyone. In case of verify we know that I was the person which create the token with the help of secret key. Therefore secret key is need for verify.
 */
