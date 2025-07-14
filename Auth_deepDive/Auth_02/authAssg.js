@@ -18,16 +18,33 @@ app.use(function(req, res, next){
     next();
 })
 
+//vvvv.impt to understand
+//If some one go to the "/" or localhost:3000 endpoint what we do is we return our
+//frontend file from the backend itself so that our frontend and backend are host on the
+//same port therefore there is no problem of cors
+//here we use __dirname:-> Which contain the current directory path
+//here path is:- D:\HP_pavillion\myWebDevSource\Auth_deepDive\Auth_02
+
+//After runing the backend code of this file the server start at port 3000
+//you need to hit the endpoint:- localhost:3000/ 
+// (In the browser so that you can see your website)
+// Let for example if you hit the localhost:3000/me endpoint it will return the json
+
+app.get('/', (req, res)=>{
+    res.sendFile(__dirname + "/public/index.html");
+})
+
 //we send username and password
 app.post('/signup', (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
     
     //first we check user with this username already exist or not
-    const check = users.find((user)=>user.username == username);
-    if(check){
-        res.json({message : "user is already exist"});
-    }
+
+    // const check = users.find((user)=>user.username == username);
+    // if(check){
+    //     res.json({message : "user is already exist"});
+    // }
 
     users.push({
         username: username,
@@ -40,7 +57,6 @@ app.post('/signup', (req, res)=>{
     //     password
     // })
     
-
     res.json({
         message : "you are signup"
     })
@@ -108,11 +124,6 @@ app.get('/me', Auth, (req, res)=>{
 //res.json({message : "you are not log in"});
 //It will all done by the middleware bcs most important work of middleware is
 //authentication.
-
-
-
-
-
 
 app.listen(3000, ()=>{
     console.log("server start at the 3000 port");

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth website</title>
+    <!-- This is use to sending request to backend(important)
+    here we use the axios other way is using the inbuilt function fetch()
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+        async function signup(){
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+            //after getting the value from the frontend I need to send request to the backend
+            //there is two way one is using fetch and other is using the axios.
+            await axios.post("http://localhost:3000/signup", {
+                username : username,
+                password : password
+            })
+            alert("You are signup");
+            //For correctly working of our code we need to host our frontend and add it to the cors library
+            //which we study before
+            //Another way is that we need to host our frontend and backend on the same port
+            //for this go and watch:- code of authAssg.js file
+        }
+
+        async function signin() {
+
+            const username = document.getElementById("signin-username").value;
+            const password = document.getElementById("signin-password").value;
+ 
+            const response = await axios.post("http://localhost:3000/signin", {
+                username: username,
+                password: password
+            })
+            //In case of signin we get the token as the response which we store in our
+            // localstorage.
+            // In local storage we generally store the user preference like light or
+            // dark theme or token
+            //Therefore it is very important to understand
+            localStorage.setItem("token", response.data.token);
+            //remember here key is the token and response is the value.
+            //Why we store the token so that every subsequent request we send
+            //token to the backend
+            //If I refresh the website after signin token still presist until
+            //you are siginout or logout 
+            //Or you can say your session presist until you logout
+            alert("You are signin");
+            
+        }
+        
+        async function getUserInformation(){
+            const response = await axios.get("http://localhost:3000/me", {
+                headers :{
+                    token : localStorage.getItem("token")
+                }
+            })
+           
+            
+            document.getElementById('information').innerHTML = JSON.stringify(response.data);
+
+            // document.getElementById('information').innerHTML = "username: "+response.data.username +
+            // " password: " +response.data.password;
+           
+            
+        }
+        getUserInformation();
+
+        function logout(){
+            localStorage.removeItem("token");
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        signup
+        <input type="text" id="signup-username" name="username"  placeholder="username">
+        <input type="password" id="signup-password" name="password" placeholder="password">
+        <button onclick="signup()">Submit</button>
+    </div>
+    <div>
+        signin
+        <input type="text" id="signin-username" name="username"  placeholder="username">
+        <input type="password" id="signin-password" name="password" placeholder="password">
+        <button onclick="signin()">Submit</button>
+
+    </div>
+    <div>
+        User information
+        <div id="information"></div>
+    </div>
+    <div>
+        <button onclick="logout()">Logout</button>
+    </div>
+    
+</body>
+</html>
