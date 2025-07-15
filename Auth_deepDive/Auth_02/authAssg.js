@@ -73,7 +73,13 @@ app.post('/signin', (req, res)=>{
     && user.password === password)
 
     if(user){
-        const token = jwt.sign({username : username}, JWT_SECRET);
+        const token = jwt.sign({
+            username : username,
+            iat : new Date().getTime()// this field show when token is issue.
+        }, JWT_SECRET,{
+            expiresIn : "1d"
+        });
+        //Here we pass the third argument also which say when our token get expire 
         res.header('jwt', token);
         res.header('random', "Subhash");
         res.json({
