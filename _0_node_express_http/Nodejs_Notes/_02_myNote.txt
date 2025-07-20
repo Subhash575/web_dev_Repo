@@ -49,5 +49,3 @@ ex:- npm install chalk
 #Whenever you install any external library you can see it some were on npm registery on
 the internet and read about it. sit name is: npm.js
 -----------------------------------------------------------
-
-

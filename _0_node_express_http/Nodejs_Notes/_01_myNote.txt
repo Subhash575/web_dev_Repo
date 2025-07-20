@@ -27,6 +27,3 @@ Node.js--> core engine is V8 interperet your javascript.
 ->Node.js, Bun and google chrome/safari etc follow the ECMASCRIPT standard
 ->internet Explorer not follow this standard. Therefore internet Explorer is rearlly
 use today and it is the Microsoft Product.
-
-
-
