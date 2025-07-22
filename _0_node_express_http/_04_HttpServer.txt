@@ -66,7 +66,8 @@ and point imSubhash.com to server(IP) mentain above
 
 ## Ports
 
-In networking, **ports** are `logical` endpoints used by protocols to identify `specific processes`  running on a computer or server. They help direct network traffic to the correct application or service on a system.
+In networking, **ports** are `logical` endpoints used by protocols to identify 
+`specific processes`  running on a computer or server. They help direct network traffic to the correct application or service on a system.
 See figure on notion docs.
 
 One Server can running multiple project using different ports/Or same port valid(80, 443)
@@ -115,5 +116,3 @@ Summary
 Port numbers can be the same for multiple websites (usually port 80 for HTTP or port 443 for HTTPS).
 The web server uses domain names (through name-based virtual hosting) to distinguish between websites.
 This allows a server to host multiple websites on the same port without any conflict.
-
-
