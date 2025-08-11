@@ -11,7 +11,7 @@ const ObjectId = Schema.ObjectId;
 //User Schema: name, email, password
 const User = new Schema({
   name: String,
-  email: String,
+  email: { type: String, unique: true },
   password: String,
 });
 
@@ -21,3 +21,13 @@ const Todo = new Schema({
   title: String,
   done: Boolean,
 });
+
+//Here first parameter {model-name/collection} & second parameter is {schema}
+//which we define above
+const UserModel = mongoose.model("users", User);
+const TodoModel = mongoose.model("todos", Todo);
+
+module.exports = {
+  UserModel,
+  TodoModel,
+};
