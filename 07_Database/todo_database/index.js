@@ -2,7 +2,7 @@
 const express = require("express");
 const { UserModel, TodoModel } = require("./db");
 const jwt = require("jsonwebtoken");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const JWT_SECRET = "siaoenhdgv4934093";
 mongoose.connect(
   "mongodb+srv://Subhash10033:4KAvk5ttg4woxKxM@cluster0.sus4gum.mongodb.net/todo-app-database"
@@ -115,7 +115,7 @@ app.post("/todo", auth, async (req, res) => {
 // todos
 app.get("/todos", auth, async (req, res) => {
   const userId = req.userId;
-  const todo = TodoModel.findOne({
+  const todo = await TodoModel.findOne({
     userId: userId,
   });
 
