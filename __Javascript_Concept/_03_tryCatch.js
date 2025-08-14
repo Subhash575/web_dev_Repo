@@ -9,34 +9,31 @@
 
 //If we use try and catch it doesn't show error.
 
-try{
-    let a = 5;
-    console.log(a)
-    let b = value
-}catch(err){
-    console.log(err.message)
-}finally{
-    console.log("It will always run")
+try {
+  let a = 5;
+  console.log(a);
+  let b = value;
+} catch (err) {
+  console.log(err.message);
+} finally {
+  console.log("It will always run");
 }
 //finally always run in try-catch block
 
 console.log();
 
 // Real-world example.
-function parseUserData(jsonString){
-    try{
-        const user = JSON.parse(jsonString) //Here we converting string into the json
-       console.log("username :" + user.name)
-    }catch(e){
-        console.log("Invalid JSON :" + e.message)
-    }
-    
-
-
+function parseUserData(jsonString) {
+  try {
+    const user = JSON.parse(jsonString); //Here we converting string into the json
+    console.log("username :" + user.name);
+  } catch (e) {
+    console.log("Invalid JSON :" + e.message);
+  }
 }
 
-parseUserData('{"name": "John"}');   //It is valid-->It is string
-parseUserData('{"name": Sonam');     //It is invalid
+parseUserData('{"name": "John"}'); //It is valid-->It is string
+parseUserData('{"name": Sonam'); //It is invalid
 
 /*
 Important Notes:
