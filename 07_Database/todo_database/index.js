@@ -12,6 +12,7 @@ mongoose.connect(
 //This is my cluster creditential:- "mongodb+srv://Subhash10033:4KAvk5ttg4woxKxM@cluster0.sus4gum.mongodb.net/"
 //One thing we need to add in the above string is my database name. It database not present with that name
 //it will create the new database.
+//Also you can copy the connection string from the 'mongodb campus'
 const app = express();
 
 /*
